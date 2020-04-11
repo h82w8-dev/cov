@@ -5,7 +5,6 @@ import covid
 from translate import Translator
 import requests
 
-TOKEN = 'TOKEN'
 translate = Translator(to_lang='en', from_lang='ru')
 covid = covid.Covid()
 bot = telebot.TeleBot(TOKEN)
