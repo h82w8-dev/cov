@@ -7,7 +7,7 @@ import requests
 
 translate = Translator(to_lang='en', from_lang='ru')
 covid = covid.Covid()
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot("TOKEN")
 alias = {'worldwide': 'world', 'usa': 'us', 'america': 'us',
          'england': 'united kingdom', 'check republic': 'czechia',
          'africa': 'central african republic', 'arab emirates': 'united arab emirates'}
