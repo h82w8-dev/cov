@@ -82,7 +82,7 @@ def query_text(query: types.InlineQuery):
 			f'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country={translated}&source=jhu')
 		population = get_population.json()['locations'][0]['country_population']
 		world = types.InlineQueryResultArticle('1', "Мир", types.InputTextMessageContent(
-			f'<u><b>🌎В мире:</b></u>\n'
+			f'<u><b>🌎В мире: </b></u>\n'
 			f"<i>👤Население: </i>7383008820\n"
 			f'<i>🦠Больных: </i>{covid.get_total_confirmed_cases()}\n'
 			f'<i>💀Умерших: </i>{covid.get_total_deaths()}\n'
@@ -90,7 +90,7 @@ def query_text(query: types.InlineQuery):
 			parse_mode='html'))
 		country = types.InlineQueryResultArticle('2', query.query.title(), types.InputTextMessageContent(
 			f"<b><u>{query.query}:</u></b>\n"
-			f"<i>👤Население🧍: </i>{population}\n"
+			f"<i>👤Население: </i>{population}\n"
 			f"<i>🦠Больных: </i>{send_stat['confirmed']}\n"
 			f"<i>💀Умерших: </i>{send_stat['deaths']}\n"
 			f"<i>💉Выздоровевших: </i>{send_stat['recovered']}", parse_mode='html'))
@@ -112,4 +112,4 @@ def query_text(query: types.InlineQuery):
 		print("Inline Error: " + str(e))
 
 
-bot.polling( none_stop = True )
+bot.polling(none_stop=True, timeout=60)
