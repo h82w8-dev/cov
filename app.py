@@ -54,7 +54,6 @@ def sendInfo(message: Message):
 		                                  f"<i>💀Умерших: </i>{send_stat['deaths']}\n"
 		                                  f"<i>💉Выздоровевших💉: </i>{send_stat['recovered']}", parse_mode='html')
 		print('Searched: ' + country + " User " + message.from_user.first_name + " " + message.from_user.last_name)
-	except KeyError or ValueError:
 		if country == 'world':
 			bot.send_message(message.chat.id, f'<u><b>🌎В мире: </b></u>\n'
 			                                  f"<i>👤Население: </i>7383008820\n"
@@ -95,7 +94,6 @@ def query_text(query: types.InlineQuery):
 			f"<i>💀Умерших: </i>{send_stat['deaths']}\n"
 			f"<i>💉Выздоровевших: </i>{send_stat['recovered']}", parse_mode='html'))
 		bot.answer_inline_query(query.id, [world, country])
-	except Exception or KeyError or ValueError as e:
 		bot.answer_inline_query(query.id, [
 				types.InlineQueryResultArticle('1', "Мир",
 				                               types.InputTextMessageContent(
