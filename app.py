@@ -112,4 +112,4 @@ def query_text(query: types.InlineQuery):
 		print("Inline Error: " + str(e))
 
 
-bot.polling(none_stop=True, timeout=60)
+bot.polling( none_stop = True )
